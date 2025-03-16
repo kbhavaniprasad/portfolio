@@ -1,0 +1,173 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: hsl(220, 100%, 11%);
+    color: white;
+    line-height: 1.6;
+}
+
+/* Header and Navbar */
+#head {
+    margin: 20px;
+}
+
+#navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.nav-item {
+    color: white;
+    font-size: 1.2rem;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-item::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.4s ease-out, left 0.4s ease-out;
+}
+
+/* .nav-item:hover {
+    color: cyan;
+} */
+
+.nav-item:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Intro Section */
+#intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    animation-name: slideleft;
+    animation-iteration-count: 1;
+    animation-duration:2s;
+}
+
+#text {
+    max-width: 600px;
+}
+
+@keyframes slideleft {
+    from{
+         transform:translateX(100%)
+    }
+}
+
+@keyframes slideright {
+    from{
+         transform:translateX(-100%)
+    }
+    to{
+        transform :translateX(0)
+    }
+}
+
+#t1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#img1 {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+}
+
+/* About Me Section */
+#aboutme {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    gap: 30px;
+    animation-name:slideright;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+}
+
+#img2 {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 5px solid white;
+    object-fit: cover;
+}
+
+#para {
+    max-width: 700px;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+
+
+/* Project & Internship Boxes */
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+#box, #box1 {
+    width: 400px;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+#box:hover, #box1:hover {
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+#contact {
+    padding: 40px;
+    text-align: center;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #intro, #aboutme {
+        flex-direction: column;
+        text-align: center;
+    }
+    #img1, #img2 {
+        width: 250px;
+        height: 250px;
+    }
+}

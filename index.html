@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="head">
+        <nav id="navbar">
+            <h1 id="hh">Portfolio</h1>
+            <a href="#contact"><h1 class="nav-item">Contact</h1></a>
+            <a href="#project"><h1 class="nav-item">Projects</h1></a>
+            <a href="#intern"><h1 class="nav-item">Internships</h1></a>
+            <a href="#technical-container"><h1 class="nav-item">Skills</h1></a>
+            <a href="#aboutme"><h1 class="nav-item">About</h1></a>
+        </nav>
+        
+    </header>
+    <main>
+        <!---Introduction section-->
+        <div id="intro">
+            <div id="text">
+                <div id="text-content">
+                    <h1 id="t1">Hello, it's me</h1>
+                    <h1 id="t1">Kola Bhavani Prasad</h1>
+                    <!-- <h1 id="t1">Front-End Developer</h1> -->
+                </div>
+                <p>Passionate about Full Stack Development and Data Structures & Algorithms, constantly exploring efficient solutions and scalable architectures. Excited to build innovative web applications while optimizing performance through algorithmic problem-solving.</p>
+            </div>
+            <img src="me.jpg" id="img1" alt="Profile Image">
+        </div>
+        <!---About me section-->
+        <div id="aboutme">
+            <img src="me.jpg" id="img2" alt="Profile Image">
+            <div id="para">
+                <h1>About Me</h1>
+                <h3>Passionate full-stack developer with expertise in the MERN stack and a strong grasp of Data Structures & Algorithms (DSA). Skilled in designing and developing scalable web applications with efficient backend logic and optimized database management.</h3>
+            </div>
+        </div>
+        <!---Internship section-->
+        <div id="intern">
+            <h1>Internships</h1>
+            <div id="container">
+                <div id="box"><h3>I completed a MERN stack internship at Biztron Softech Ltd. from June 24 to July 20, 2024, where I gained hands-on experience in MongoDB, Express.js, React.js, and Node.js.</h3></div>
+            </div>
+        </div>
+        <!---Project section-->
+        <div id="project">
+            <h1>Projects</h1>
+            <div id="container">
+                <div id="box1">
+                    <h2 id="p1">MediKart</h2>
+                    <h4 id="p">A web-based application for online medicine ordering, designed with HTML, CSS, and JavaScript.</h4> 
+                </div>
+                <div id="box1">
+                    <h2 id="p1">ToDo List</h2>
+                    <h4 id="p">A MERN stack-based task management app for organizing daily activities.</h4>
+                </div>
+            </div>
+        </div>
+        <!---Skills section-->
+        <div id="technical-container">
+            <h1>Technical Skills</h1>
+            <div id="tech-item-hidden">
+                <div class="skill">
+                    <div class="progress-circle" data-percent="85"></div>
+                    <p>C (85%)</p>
+                </div>
+                <div class="skill">
+                    <div class="progress-circle" data-percent="75"></div>
+                    <p>Java (75%)</p>
+                </div>
+                <div class="skill">
+                    <div class="progress-circle" data-percent="90"></div>
+                    <p>HTML (90%)</p>
+                </div>
+                <div class="skill">
+                    <div class="progress-circle" data-percent="85"></div>
+                    <p>CSS (85%)</p>
+                </div>
+                <div class="skill">
+                    <div class="progress-circle" data-percent="80"></div>
+                    <p>JavaScript (80%)</p>
+                </div>
+                <div class="skill">
+                    <div class="progress-circle" data-percent="70"></div>
+                    <p>MERN Stack (70%)</p>
+                </div>
+            </div>
+        </div>
+        <!---Contact section-->
+        <div id="contact">
+            <h1>Contact Me</h1>
+            <div id="contact-info">
+                <button type="button" id="mail-btn">Mail</button> 
+                <button type="button" id="phone-btn">Phone No</button>
+            </div>
+            <div id="contact-form">
+                <!-- Dynamic form fields will appear here -->
+            </div>
+        </div>
+        
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Animate Circular Progress Bars
+            const progressCircles = document.querySelectorAll(".progress-circle");
+
+            progressCircles.forEach((circle) => {
+                let percent = circle.getAttribute("data-percent");
+                let gradient = `conic-gradient(#007bff ${percent}%, white ${percent}%)`;
+                circle.style.background = gradient;
+                circle.textContent = percent + "%";
+            });
+
+            const mailBtn = document.getElementById("mail-btn");
+    const phoneBtn = document.getElementById("phone-btn");
+    const contactForm = document.getElementById("contact-form");
+
+    function showForm(type) {
+        let formContent = `
+            <input type="text" placeholder="Username" required>
+        `;
+
+        if (type === "mail") {
+            formContent += `
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Subject" required>
+            `;
+        } else if (type === "phone") {
+            formContent += `
+                <input type="tel" placeholder="Phone No" required>
+                <input type="text" placeholder="Subject" required>
+            `;
+        }
+
+        formContent += `<button type="submit">Submit</button>`;
+
+        contactForm.innerHTML = formContent;
+        contactForm.style.display = "block"; // Show form
+    }
+
+    mailBtn.addEventListener("click", () => showForm("mail"));
+    phoneBtn.addEventListener("click", () => showForm("phone"));
+    });
+    </script>
+</body>
+</html>
